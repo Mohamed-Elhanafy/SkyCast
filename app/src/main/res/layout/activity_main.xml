@@ -69,7 +69,7 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_temperature"
-            tools:text="Dhaka, BD" />
+            tools:text="Cairo, BD" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
