@@ -6,6 +6,8 @@ object Constants {
 
 
     const val DATE_FORMAT = "E, d MMM yyyy"
+    const val TIME_FORMAT = "hh:mm a"
+
     const val DATE_FORMAT_1 = "E, d MMM yyyy HH:mm:ss"
     const val WEATHER_UNIT = "metric"
 
