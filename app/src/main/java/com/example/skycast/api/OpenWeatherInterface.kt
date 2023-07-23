@@ -24,12 +24,10 @@ interface OpenWeatherInterface {
 
     companion object {
         operator fun invoke(
-            networkConnectionInterceptor: NetworkConnectionInterceptor
         ): OpenWeatherInterface {
 
             val url = BASE_URL
             val okkHttpclient = OkHttpClient.Builder()
-                .addInterceptor(networkConnectionInterceptor)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(60, TimeUnit.SECONDS)
