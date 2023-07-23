@@ -3,6 +3,8 @@ package com.example.skycast
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.skycast.api.OpenWeatherInterface
 import com.example.skycast.data.WeatherData
@@ -25,7 +27,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getWeatherInfo("cairo")
+
+        binding.btnViewWeather.setOnClickListener {
+            var city = binding.etCityName.text.toString()
+            lifecycleScope.launch {
+                viewModel.getWeatherInfo(city)
+            }
+        }
+
+        viewModel.progressBarLiveData.observe(this, Observer { isShowLoader ->
+            if (isShowLoader)
+                binding.progressBar.visibility = View.VISIBLE
+            else
+                binding.progressBar.visibility = View.GONE
+        })
 
         //observe the weather info live data
         viewModel.weatherInfoLiveData.observe(this) { weatherData ->

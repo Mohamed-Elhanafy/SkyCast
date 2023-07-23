@@ -17,15 +17,22 @@ import kotlinx.coroutines.launch
 private const val TAG = "WeatherInfoViewModel"
 
 class WeatherInfoViewModel : ViewModel() {
-    private val _weatherInfoLiveData = MutableLiveData<WeatherData>()
-    val weatherInfoLiveData:LiveData<WeatherData> = _weatherInfoLiveData
-
     private val weatherRepository = WeatherRepository(OpenWeatherInterface.invoke())
+
+    private val _weatherInfoLiveData = MutableLiveData<WeatherData>()
+    val weatherInfoLiveData: LiveData<WeatherData> = _weatherInfoLiveData
+
+    private val _progressBarLiveData = MutableLiveData<Boolean>()
+    val progressBarLiveData: LiveData<Boolean> = _progressBarLiveData
+
+
     fun getWeatherInfo(cityName: String) {
+        _progressBarLiveData.postValue(true)
         viewModelScope.launch {
             val weatherData = weatherRepository.getWeatherInfo(cityName)
             Log.i(TAG, "onCreate: weather data is $weatherData")
             _weatherInfoLiveData.value = weatherData
+            _progressBarLiveData.postValue(false)
         }
     }
 }

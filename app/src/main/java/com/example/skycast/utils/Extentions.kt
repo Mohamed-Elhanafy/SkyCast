@@ -41,3 +41,8 @@ fun Double.kelvinToCelsius(): Int {
 
     return (this - 273.15).toInt()
 }
+
+
+fun Int.meterToKm(): Int {
+    return this / 1000
+}
