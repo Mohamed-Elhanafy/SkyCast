@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.GONE
         })
 
-        //observe the weather info live data
+
         viewModel.weatherInfoLiveData.observe(this) { weatherData ->
             Log.i(TAG, "onCreate: weather info is $weatherData")
             binding.apply {
@@ -56,6 +56,24 @@ class MainActivity : AppCompatActivity() {
                 tvWeatherCondition.text = weatherData.discription
             }
         }
+
+        viewModel.weatherInfoFailureLiveData.observe(this, Observer { errorMessage ->
+
+            binding.apply {
+                tvDateTime.visibility = View.GONE
+                tvTemperature.visibility = View.GONE
+                celesiusSymbol.visibility = View.GONE
+                tvHumidityValue.visibility = View.GONE
+                tvHumidityLabel.visibility = View.GONE
+                tvPressureValue.visibility = View.GONE
+                tvPressureLabel.visibility = View.GONE
+                tvVisibilityValue.visibility = View.GONE
+                tvVisibilityLabel.visibility = View.GONE
+                tvErrorMessage.visibility = View.VISIBLE
+                tvErrorMessage.text = errorMessage
+            }
+        })
+
 
     }
 }
