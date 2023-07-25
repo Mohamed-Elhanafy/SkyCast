@@ -2,7 +2,9 @@
 
 SkyCast is a weather forecast app developed using the MVVM architecture in Kotlin language with the Retrofit network calling library and Coroutines for asynchronous programming.
 ## screenshots
-![[Screenshot_20230725_084813.png]]
+
+<img src="/res/Screenshot_20230725_084813.png" width="260">
+
 ## Purpose
 
 The purpose of this app is to provide users with accurate weather forecasts for their location. The app uses the OpenWeatherMap API to fetch weather data and displays it in a user-friendly interface.
