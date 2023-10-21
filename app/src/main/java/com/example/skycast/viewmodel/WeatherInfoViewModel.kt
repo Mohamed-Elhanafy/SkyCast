@@ -4,14 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
-import com.example.skycast.api.OpenWeatherInterface
-import com.example.skycast.data.Weather
 import com.example.skycast.data.WeatherData
 import com.example.skycast.repository.WeatherRepository
-import com.example.skycast.utils.dateToString
-import com.example.skycast.utils.timeToString
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
