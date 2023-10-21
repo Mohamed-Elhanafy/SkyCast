@@ -26,6 +26,7 @@ The app uses the following dependencies:
 - OkHttp: for HTTP client
 - Gson: for JSON parsing
 - Coroutines: for asynchronous programming
+- Hilt: for Dependency injection
 
 ## Credits
 
