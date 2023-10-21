@@ -7,15 +7,10 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.example.skycast.api.OpenWeatherInterface
-import com.example.skycast.data.WeatherData
 import com.example.skycast.databinding.ActivityMainBinding
-import com.example.skycast.utils.dateToString
-import com.example.skycast.utils.timeToString
 import com.example.skycast.viewmodel.WeatherInfoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import androidx.fragment.app.activityViewModels
 
 
 private const val TAG = "MainActivity"
