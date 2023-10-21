@@ -12,12 +12,17 @@ import com.example.skycast.data.WeatherData
 import com.example.skycast.repository.WeatherRepository
 import com.example.skycast.utils.dateToString
 import com.example.skycast.utils.timeToString
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 private const val TAG = "WeatherInfoViewModel"
 
-class WeatherInfoViewModel : ViewModel() {
-    private val weatherRepository = WeatherRepository(OpenWeatherInterface.invoke())
+
+@HiltViewModel
+class WeatherInfoViewModel @Inject constructor(
+    private val weatherRepository: WeatherRepository
+) : ViewModel() {
 
     private val _weatherInfoLiveData = MutableLiveData<WeatherData>()
     val weatherInfoLiveData: LiveData<WeatherData> = _weatherInfoLiveData

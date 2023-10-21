@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.skycast.api.OpenWeatherInterface
@@ -12,15 +13,18 @@ import com.example.skycast.databinding.ActivityMainBinding
 import com.example.skycast.utils.dateToString
 import com.example.skycast.utils.timeToString
 import com.example.skycast.viewmodel.WeatherInfoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import androidx.fragment.app.activityViewModels
 
 
 private const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by lazy { WeatherInfoViewModel() }
+    private val viewModel : WeatherInfoViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
