@@ -36,8 +36,6 @@ class WeatherInfoViewModel @Inject constructor(
             Log.i(TAG, "onCreate: weather data is $weatherData")
             _weatherInfoLiveData.value = weatherData
             _progressBarLiveData.postValue(false)
-
-
         }
     }
 
